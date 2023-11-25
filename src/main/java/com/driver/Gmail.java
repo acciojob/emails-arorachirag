@@ -33,7 +33,7 @@ public class Gmail extends Email {
             mail = inbox.get(0);
             trash.add(mail);
             inbox.remove(0);
-            return;
+
         }
         mail = new Triplet(date,sender,message);
         inbox.add(mail);
@@ -82,7 +82,7 @@ public class Gmail extends Email {
         //It is guaranteed that start date <= end date
         int count = 0;
         for(Triplet t : inbox){
-            if(t.date.after(start) && t.date.before(end)){
+            if(t.date.compareTo(start)==0 || t.date.compareTo(end)==0){
                 count++;
             }
         }
